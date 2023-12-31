@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Year's Message</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background: linear-gradient(to right top, #f06400, #ffba00); /* Gradient background */
+            color: #333; /* Dark gray text color */
+        }
+
+        #container {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            transition: box-shadow 0.3s;
+        }
+
+        #container:hover {
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+        }
+
+        #message {
+            margin-top: 30px;
+            display: none;
+            animation: fadeIn 1s ease-in-out; /* Fade-in animation */
+        }
+
+        #outputMessage {
+            text-align: left;
+            font-size: 16px;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        h1 {
+            font-size: 24px;
+            color: #ff6f61; /* Orange color for the greeting */
+            margin-bottom: 10px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 15px;
+            font-size: 18px;
+            color: #333;
+        }
+
+        input {
+            width: 300px;
+            padding: 12px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 25px;
+            transition: border-color 0.3s;
+        }
+
+        input:focus {
+            border-color: #ffd700; /* Gold color on focus */
+            outline: none;
+        }
+
+        button {
+            padding: 12px 24px;
+            font-size: 18px;
+            background: linear-gradient(to right, #ff6f61, #ff524c);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        button:hover {
+            background: linear-gradient(to right, #ff524c, #ff6f61);
+        }
+
+        p {
+            margin-bottom: 15px;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        strong {
+            color: #f06400; /* Orange for the name */
+            font-weight: bold;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="container">
+        <label for="personName">Enter your name:</label>
+        <input type="text" id="personName" placeholder="Type your name">
+
+        <button onclick="generateMessage()">Click</button>
+
+        <div id="message">
+            <h1>Happy New Year, <strong id="personNameDisplay"></strong>!</h1>
+            <p id="outputMessage">
+                <strong id="personNameMessage"></strong>!..<br>
+                It's not only a name;<br>
+                it's one of the best connections in my network.<br>
+                How lucky I am to have you.<br>
+                Maybe our communication is less, but your presence always makes me feel special.<br>
+                Once, I didn't know why sometimes even repeatedly visited places look beautiful.<br>
+                Now, with this new year enlightenment,<br>
+                I've come to realize that it's not about places; it's about people in that place.<br>
+                And you are the one, <strong id="personNameStrong">!!</strong><br>
+                Thank you for being with me.<br>
+                I wish you a Happy New Year!<br>
+                With love, <strong id="personNameWarm">Siva</strong>
+            </p>
+        </div>
+    </div>
+
+    <script>
+        function generateMessage() {
+            var personName = document.getElementById("personName").value;
+            var messageContainer = document.getElementById("message");
+
+            if (personName.trim() !== "") {
+                document.getElementById("personNameDisplay").innerText = personName;
+                document.getElementById("personNameMessage").innerText = personName;
+                document.getElementById("personNameStrong").innerText = personName;
+                document.getElementById("personNameWarm").innerText = "siva";
+
+                messageContainer.style.display = "block";
+            } else {
+                alert("Please enter a valid name.");
+            }
+        }
+    </script>
+
+</body>
+</html>
